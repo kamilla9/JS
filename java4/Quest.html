@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // Текст игры
+
+    var works = {
+        a00:'Вы живёте в тихой и уютной деревеньке на окрайне страны.\n' +
+        'Здесь есть практчески всё: речка, лес, горы, озеро, луга и поля, есть даже школа в соседнем селе.\n' +
+        'Сейчас начало лета, воскресенье, раннее утро, Вы просыпаетесь и собираетесь ...\n',
+        a0: 2,
+        a1: '1 - Поспать до обеда\n',
+        a2: '2 - Пойти прогуляться\n',
+
+
+
+        b00: 'Вы решили поспать до обеда.\n' +
+        'После того как Вы проснулись первое, что вы ощутили, это приятный запах, который шёл с кухни.\n' +
+        'После Вы замечаете, какая за окном прекрасная погода, и Вы думаете ...\n',
+        b0: 2,
+        b1: '1 - Пойти прогуляться\n',
+        b2: '2 - Пойти пообедать\n',
+
+
+
+        c00: 'Вы решили пойти прогуляться.\n' +
+        'Вы выходите из своего дома и видите прекрасный рассвет, блики солнца так и играют на озёрной глади.\n' +
+        'Вы решаете дойти до озера, полюбоваться его красотойю\n' +
+        'С одной стороны тропинки Вы видите пшеничное поле, за которым веднеется лес.\n' +
+        'С другой стороны течёт речка, а в далеке виднеются горы.\n' +
+        'Вы наслаждаетесь пейзажами и не замечаете как летит время.\n' +
+        'Домой Вы приходите только к обеду, но до обеда ещё есть время и Вы решаете ...\n',
+        c0: 2,
+        c1: '1 - Подождать обед в столовой\n',
+        c2: '2 - Поколоть дров перед обедом\n',
+
+
+        // 1)-1; 2)-1
+        d00: 'После обеда вы решили пойти прогуляться, но начали потихоньку сгущаться тучи, предвещая ливень с грозой. Вы уже достаточно далеко ушли от дома, поэтому ,увидя неподалеку домик , решаетесь направиться к нему.И вот вы уже почти дошли до него ,как внезапно проваливаетесь в глубокую яму , заваленную листвой.Никого поблизости нет и никто вас не слышит... К сожалению, так заканчивается ваша история( \nВы можете просмотреть свои ответы:\n',
+        d0: 2, // кол-во ответов
+        d1: '1 - Вернуться к 1 ответу\n',
+        d2: '2 - Вернуться ко 2 ответу\n',
+
+
+        // 1)-1; 2)-2
+        e00: 'Проснувшись, вы решили пойти пообедать. и правильно сделали, потому что начался ливень с грозой и мало ли чем ввсе это закончилось...\nВы можете просмотреть свои ответы:\n',
+        e0: 2, // кол-во ответов
+        e1: '1 - Вернуться к 1 ответу\n',
+        e2: '2 - Вернуться ко 2 ответу\n',
+
+
+        // 1)-2; 3)-1
+        f00: 'Гуляя , вы забрели в соседнее село , в котором редко бывали,проголодавшись , вы нашли  столовую \nВы можете просмотреть свои ответы:\n',
+        f0: 2, // кол-во ответов
+        f1: '1 - Вернуться к 1 ответу\n',
+        f2: '2 - Вернуться ко 2 ответу\n',
+
+
+        // 1)-2; 3)-2
+        j00: 'И вот вы уже стоите и колите дрова\nВы можете просмотреть свои ответы:\n',
+        j0: 2, // кол-во ответов
+        j1: '1 - Вернуться к 1 ответу\n',
+        j2: '2 - Вернуться ко 2 ответу\n'
+    };
+
+
+
+
+    var event, ok;
+
+
+    do {//Выводим первый вопрос
+       
+        event = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры');
+        if (event == -1) {
+            break;
+        }
+        else {
+            ok = isAnswer(works.a0, event);
+        }
+    } while (!ok);
+    switch (event) {
+        case 1: // 1)-1;2)-1
+            do {
+                event = +prompt(works.b00 + works.b1 + works.b2 + '-1 - Выход из игры');
+                if (event == -1) {
+                    break;
+                }
+                else {
+                    ok = isAnswer(works.b0, event);
+                }
+            } while (!ok);
+            switch (event) {
+                case 1: // 1)-1; 2)-1 3)окно
+                    do {
+                        event = +prompt(works.d00 + works.d1 + works.d2 + '-1 - Выход из игры');
+                        if (event == -1) {
+                            break;
+                        }
+                        else {
+                            ok = isAnswer(works.d0, event);
+                        }
+                    } while (!ok);
+                    switch (event) {
+                        case 1://back to 1 qstn
+                            do{
+                                event = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры','1');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.a0, event);
+                                }
+                            }while (!ok);
+                            break;
+                        case 2://back to 2 qstn
+                            do{
+                                event = +prompt(works.b00 + works.b1 + works.b2 + '-1 - Выход из игры','1');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.b0, event);
+                                }
+                            }while (!ok);
+                        break;
+                    }
+                }
+                case 2: // 1)-1; 2)-2 3)окно
+                    do {
+                        event = +prompt(works.e00 + works.e1 + works.e2 + '-1 - Выход из игры');
+                        if (event == -1) {
+                            break;
+                        }
+                        else {
+                            ok = isAnswer(works.e0, event);
+                        }
+                    } while (!ok);
+                    switch (event) {
+                        case 1://back to 1 qstn
+                            do{
+                                event = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры','1');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.a0, event);
+                                }
+                            }while (!ok);
+                        break;
+                        case 2://back to 2 qstn
+                            do{
+                                event = +prompt(works.b00 + works.b1 + works.b2 + '-1 - Выход из игры','2');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.b0, event);
+                                }
+                            }while (!ok);
+                        break;
+                    }
+
+                    break;
+               
+        case 2: // 1)-2; 2)окно c
+
+            do {
+                event = +prompt(works.c00 + works.c1 + works.c2 + '-1 - Выход из игры');
+                if (event == -1) {
+                    break;
+                }
+                else {
+                    ok = isAnswer(works.c0, event);
+                }
+            } while (!ok);
+            switch (event) {
+                case 1: // 1)-2; 3)-1
+                    do {
+                          event = +prompt(works.f00 + works.f1 + works.f2 + '-1 - Выход из игры');
+                        if (event == -1) {
+                            break;
+                        }
+                        else {
+                            ok = isAnswer(works.f0, event);
+                        }
+                    } while (!ok);
+                    switch (event) {
+                        case 1://back to 1 qstn
+                            do{
+                                event = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры','2');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.a0, event);
+                                }
+                            }while (!ok);
+                        break;
+                        case 2://back to 3 qstn
+                            do{
+                                event = +prompt(works.c00 + works.c1 + works.c2 + '-1 - Выход из игры','1');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.c0, event);
+                                }
+                            }while (!ok);
+                        break;
+                    }
+
+                    break;
+                case 2: // 1)-2; 3)-2
+                    do {
+                        event = +prompt(works.j00 + works.j1 + works.j2 + '-1 - Выход из игры');
+                        if (event == -1) {
+                            break;
+                        }
+                        else {
+                            ok = isAnswer(works.j0, event);
+                        }
+                    } while (!ok);
+                    switch (event) {
+                        case 1://back to 1 qstn
+                            do{
+                                event = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры','2');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.a0, event);
+                                }
+                            }while (!ok);
+                        break;
+                        case 2://back to 3 qstn
+                            do{
+                                event = +prompt(works.c00 + works.c1 + works.c2 + '-1 - Выход из игры','2');
+                                if (event == -1){
+                                    break;
+                                }else{
+                                    ok = isAnswer(works.c0, event);
+                                }
+                            }while (!ok);
+                        break;
+                    }
+
+                    break;
+               
+                default:
+                    alert('Ошибка');
+            }
+            break;
+
+        case -1: // Первое действие
+            break;
+
+        default:
+            alert('Ошибка');
+    }
+    alert('Спасибо за игру');
+
+
+    //------------------------------------------
+
+    function isAnswer(q, event) {
+        if (isNaN(event) || !isFinite(event)) {
+            alert('Вы ввели недопустимый символ');
+            return false;
+        }
+        else if (event < 1 || event > q) {
+            alert('Ваше число выходит из допустимого диапозона');
+            return false;
+        }
+    	return true;
+        
+    }
+</script>
+</body>
+</html>
