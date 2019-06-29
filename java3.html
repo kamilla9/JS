@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript"></script>
+</head>
+<body>
+	
+<script>
+
+	// С помощью цикла while вывести все простые числа в промежутке от 0 до 100
+
+	var a=0;
+
+	while(a<=100){
+		document.write(a+",");
+		++a;
+	}
+
+	// Организовали такой массив для хранения товаров в корзине
+
+	var sum = 0;
+
+	var purchases = ["товар1", "товар2","товар3","товар4"]; 
+		
+		purchases[0] = 500;
+		purchases[1] = 600;
+		purchases[2] = 999;
+		purchases[3] = 2599;
+
+	// Организовали функцию countBasketPrice, которая будет считать стоимость корзины
+
+	function countBasketPrice(x) {
+		for(var i = 0; i < purchases.length; i++){
+			sum += parseInt(purchases[i]);
+		}
+		return sum;
+	}
+
+	
+	alert('Сумма товаров в каталоге:'+countBasketPrice(purchases));
+
+
+    // Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла.
+
+	for(var a = 0; a<=9; a++)
+	
+	document.write('Число:'+a+"<br>");
+	
+	// Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
+
+	for(var x = 0; x < 20; x++){
+	var str = "";
+	for(var y = 0; y <= x; y++){
+	str += "x";
+	}
+	console.log(str);
+	}
+
+
+</script>
+
+</body>
+</html>

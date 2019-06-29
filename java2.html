@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Java</title>
+	</head>
+	<script>
+
+	//Задание1:
+	var a = 1, b = 1, c, d;
+	c = ++a; alert(c);           // 2 , потому что ++a прибавляет единицу к переменной !и сразу возвращает измененное значение! (1+1=2)
+	d = b++; alert(d);           // 1  b++ изменит свое значение только при следующем применении
+	c = (2+ ++a); alert(c);      // 5 , т.к инкремент в первой строке(++а) поменяла саму переменную с 1 на 2 => 2+(2+1)=5
+	d = (2+ b++); alert(d);      // 4 , т.к ++b тоько сейчас может изменить свое значение => b++ = 2
+	alert(a);                    // 3 потлму что инвремент изменил свое значение в 3 строке теперь уже на 3
+	alert(b);                    // 3 в 4 строке b++ увеличился еще на 1 с опозданием
+
+
+	//Задание2:
+	var a = 2;
+	var x = 1 + (a *= 2);
+	alert("x:"+x); //Ответ 5 , т к (a*=2) это 2*2 => 1+(2*2)=5
+
+
+	//Задание3:
+	var a,b;
+	a=Math.round(Math.random()*100-50);
+	b=Math.round(Math.random()*100-50);
+	if(confirm("Вывести два слуйчаных числа?")){
+		alert("Рандомное а="+a+"Рандомное b="+b);
+		if(a>=0 && b>=0 && a>b){
+			x=a-b;
+			alert("a больше , чем b, поэтому a-b="+x);
+		} else if(a>=0 && b>=0 && b>a){
+			x=b-a;
+			alert("b больше , чем a, поэтому b-a="+x);
+		}else if(a<0 && b<0){
+			x=a*b;
+			alert("a и b отрицательны, поэтому a*b="+x);
+		} else if(a<0 || b<0)
+			x=a+b;
+			alert("a и b разных знаков, поэтому a+b="+x);
+	}else
+		alert("Что ж , ок");
+
+
+	//Задание4:
+	var a = prompt('Введите число от 1 до 15');
+	
+	switch (a) {
+	case "1":
+	alert(a++);
+	case "2":
+	alert(a++);
+	case "3":
+	alert(a++);
+	case "4":
+	alert(a++);
+	case "5":
+	alert(a++);
+	case "6":
+	alert(a++);
+	case "7":
+	alert(a++);
+	case "8":
+	alert(a++);
+	case "9":
+	alert(a++);
+	case "10":
+	alert(a++);
+	case '11':
+	alert(a++);
+	case '12':
+	alert(a++);
+	case '13':
+	alert(a++);
+	case '14':
+	alert(a++);
+	case '15':
+	alert(a);
+	case 'a' >= 15:
+	alert('Всё!');
+	break;
+	default:
+	alert('Упс..')
+	}
+
+
+	//Задание5:
+
+	var a = +prompt('Введите первое число:');
+	var b = +prompt('Введите второе число:');
+
+	//first function
+	function add(a,b){
+		return a+b;
+	};
+
+	var result= add(a,b);
+	alert('Результат:'+result);
+
+	//second function
+	function mult(a,b){
+		return a*b;
+	};
+	var result= mult(a,b);
+	alert('Результат:'+result);
+
+	//third function
+	function div(a,b){
+		return a/b;
+	};
+	var result = div(a,b);
+	alert('Результат:'+result);
+
+	//fourth function
+	function sub(a,b){
+		return a-b;
+	};
+	var result = sub(a,b);
+	alert('Результат:'+result);
+
+	//Задание6:
+
+	var a = +prompt('Первое значение:');
+	var b = +prompt('Второе значение:');
+	var c = prompt('Какое выполнить действие?(умножить,сложить,отнять,разделить)'+"\n"+ 'P.S Пишите без пробелов.');
+	var result;
+
+	//Производим вычисления с помощью функции mathOperation
+	function mathOperation(arg1, arg2, operation){
+		switch(operation)  {
+
+			case 'умножить':
+					return arg1 * arg2;
+					break;
+			case 'сложить':
+					return arg1 + arg2;
+					break;
+			case 'отнять':
+					return arg1 - arg2;
+					break;
+			case 'разделить':
+					return arg1 / arg2;
+					break;
+		}
+			
+	};
+
+	result = mathOperation(a, b, c); //Теперь arg1=a; arg2=b; operation=c 
+	alert('Результат:'+ result);
+
+
+	//Задание7:
+
+	var a,b;
+	a = null;
+	b = 0;
+
+	if (a>b) {
+		alert('true null>0');
+	} else if(a==b){
+		alert('true null == 0');
+	} else if(b>=a){
+		alert('true null >= 0');
+	} else{
+		alert('false');
+	}
+
+	/* 
+	получилось , что 
+	null > 0 : false;
+	null == 0 : false;
+	null >= 0 : true;
+	Думаю ,это потому что false на false дало true =)
+	*/
+
+
+	// Задание8
+	var number = 5;
+	var degree = 2;
+	var result;
+
+	function power(val, pow){
+			return Math.pow(val,pow);
+	};
+
+	result = power(number,degree);
+	alert('Результат:'+result);
+
+	</script>
+</html>
